@@ -1,26 +1,3 @@
-import requests
-import sys
-import logging
-
-discovered_subdoamins = []
-
-
-
-sub_lists = open("subdomains.txt").read()
-subdomain = sub_lists.splitlines()
-
-
-for subways in subdomain:
-    sub_domains = f"https://{subways}.{sys.argv[1]}/"
-    try:
-        req = requests.get(sub_domains)
-        
-    except requests.ConnectionError:
-        pass
-    else:
-        print("Valid Domain:", sub_domains)
-        discovered_subdoamins.append(sub_domains)
-
-with open("discovered_subdoamins.txt", "w") as f:
-    for subdomain in discovered_subdoamins:
-        print(subdomain, file=f)    
+version https://git-lfs.github.com/spec/v1
+oid sha256:b8f917c9a76be3a981c986a129c65e1b2e8d2fe983a57eb9432473618b185d04
+size 600
